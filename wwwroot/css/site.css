@@ -42,9 +42,12 @@ h1, h2 {
     font-weight: 400;
     font-style: normal;
 }
+h1{
+    font-size:3em;
+}
 
 
-            /*************HTML TAGS*************/
+            /*************CLASSES*************/
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -63,4 +66,10 @@ h1, h2 {
 .th-btn-pink {
     background-color: #c1aaa2;
     border:2px solid #000000;
+}
+.type-row {
+    background-color: #8c9a8d;
+}
+.type-row:hover {
+    background-color: #b1a08b;
 }
