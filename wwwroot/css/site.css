@@ -1,3 +1,17 @@
+           /*************FONTS*************/
+.lovers-quarrel-regular {
+    font-family: "Lovers Quarrel", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nanum-myeongjo-regular {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+            /*************HTML TAGS*************/
 html {
   font-size: 14px;
 }
@@ -8,15 +22,45 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    background: #c1cdb7;
 }
 
 body {
   margin-bottom: 60px;
+  background:none;
+}
+
+.navbar {
+    background-image: linear-gradient(#c1aaa2, rgba(193, 205, 183, 0.1));
+}
+
+h1, h2 {
+    font-family: "Lovers Quarrel", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+            /*************HTML TAGS*************/
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+.service-types-box {
+    background: #8c9a8d;
+    border-radius:10px;
+}
+.nav-link-th{
+    border-radius:7px;
+}
+.nav-link-th:hover {
+    border-radius:7px;
+    background-color: #c1aaa2;
+    color: white;
+}
+.th-btn-pink {
+    background-color: #c1aaa2;
+    border:2px solid #000000;
 }
