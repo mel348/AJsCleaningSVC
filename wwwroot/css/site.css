@@ -69,7 +69,12 @@ h1{
 }
 .type-row {
     background-color: #8c9a8d;
+    height: 60px;
+    line-height: 60px;
 }
 .type-row:hover {
     background-color: #b1a08b;
+}
+.service-row:hover {
+    background-color: #c1aaa2;
 }
