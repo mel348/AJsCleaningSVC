@@ -13,7 +13,16 @@
 
             /*************HTML TAGS*************/
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    background: #c1cdb7;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -22,14 +31,9 @@ html {
   }
 }
 
-html {
-    position: relative;
-    min-height: 100%;
-    background: #c1cdb7;
-}
 
 body {
-  margin-bottom: 60px;
+
   background:none;
 }
 
@@ -73,10 +77,25 @@ h1{
     height: 60px;
     line-height: 60px;
 }
+.service-row {
+    background-color: rgba(213, 187, 166, .5);
+}
 .type-row:hover {
     background-color: #b1a08b;
 }
 .service-row:hover {
-    background-color: #c1aaa2;
+    background-color: rgba(193, 170, 162, .5);
 }
 
+.img-bg-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 100%;
+    background-image: url('/images/succulents_1.png');
+    background-size: contain;
+    background-position: center bottom ;
+    background-repeat: no-repeat;
+}
