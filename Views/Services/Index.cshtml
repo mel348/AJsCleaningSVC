@@ -3,7 +3,17 @@
 @{
     ViewData["Title"] = "Services";
 }
-<div class="img-bg-container " style="height:90vh;">
+<style>
+    html {
+        background-image: url('/images/succulents_2.png');
+        background-size: contain;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+ 
+    }
+</style>
+<div class=" h-100" style="height:90vh;" >
     <h1 class="text-center">Services</h1>
 
     <p class="text-end">
@@ -14,23 +24,32 @@
             @foreach (var typeGroup in Model.GroupBy(item => item.Type))
             {
                 <tr class="type-row" >
-                    <th colspan="3" class="toggle-service">@Html.DisplayFor(modelItem => typeGroup.Key)</th>
+                    <th colspan="2" class="toggle-service">@Html.DisplayFor(modelItem => typeGroup.Key)</th>
+                    <th class="text-end toggle-service pe-4">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </th>
                 </tr>
 
                 @foreach (var serviceGroup in typeGroup.GroupBy(item => item.Service))
                 {
                     <tr class="service-row">
-                        <th class="toggle-description" colspan="3">
+                        <th class="toggle-description" colspan="2">
                             @Html.DisplayFor(modelItem => serviceGroup.First().Service)
-                        
+
                         </th>
+                        <th class="toggle-description pe-5 text-end" colspan="1">
+                            <i class="fa-solid fa-caret-down"></i>
+                        </th>
+                        
                     </tr>
 
-                    <tr class="description-row py-5">
-                        <td colspan="3">
+                    <tr class="description-row py-5 bg-pnk">
+                        <td colspan="3" >
                             <span class="description" data-description="@Html.DisplayFor(modelItem => serviceGroup.First().Description)"></span>
-                            <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" >Edit</a> |
-                            <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id">Delete</a>
+                            <div class="text-center">
+                                <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" >Edit</a> |
+                                <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id">Delete</a>
+                            </div>
                         </td>
                     </tr>
 
@@ -38,5 +57,5 @@
             }
         </tbody>
     </table>
-
+    
 </div>
