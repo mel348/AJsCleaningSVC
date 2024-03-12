@@ -47,7 +47,10 @@ h1, h2 {
     font-style: normal;
 }
 h1{
-    font-size:3.5em;
+    font-size:3em;
+}
+h2{
+    font-size:2.2em;
 }
 
 
@@ -70,6 +73,10 @@ h1{
 .th-btn-pink {
     background-color: #c1aaa2;
     border:2px solid #000000;
+}
+.th-btn-pink:hover {
+    background-color: #e0d4d0;
+    border: 2px solid #000000;
 }
 
 .type-row {
@@ -104,6 +111,20 @@ h1{
     background-position: center bottom ;
     background-repeat: no-repeat;
 }
-svc-body{
-
+.th-bg-header {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+    padding: 15px; /* Add padding as needed */
+}
+.th-h1-op {
+    font-size: 2.2em;
+    color: white;
+/*    text-shadow: 2px 2px 1px black;
+*/    text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000;
 }
