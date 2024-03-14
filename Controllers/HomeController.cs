@@ -26,7 +26,7 @@ namespace AJsCleaning.Controllers
         {
             return View();
         }
-        public IActionResult FAQ()
+        public IActionResult Team()
         {
             return View();
         }
