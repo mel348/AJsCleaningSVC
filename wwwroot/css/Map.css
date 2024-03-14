@@ -1,0 +1,68 @@
+﻿* {
+    box-sizing: border-box;
+}
+h3 {
+    font-family: "Lovers Quarrel", cursive;
+    font-weight: 500;
+    font-size: 3em;
+    font-style: normal;
+    margin-left: 1150px;
+    margin-top: -70px;
+    position: fixed; /* Ensure it stays fixed */
+    z-index: 2; /* Ensure it's above the map */
+    color: black; /* Adjust color as needed */
+}
+
+#map-container {
+    position: fixed;
+    bottom: 25px; /* Adjusted bottom position */
+    right: 80px;
+    width: 33%;
+    height: 30%;
+    border: 2px solid black; /* Add border */
+    box-sizing: content-box; /* Exclude border from width and height calculations */
+    z-index: 1;
+    display: flex; /* Use flexbox to position search container */
+    flex-direction: column; /* Arrange children in a column */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#search-container {
+    background-color: #e6d9c7;
+    max-width: 100%;
+    width: 100%; /* Fill the width of the parent */
+    padding: 10px;
+    margin: 0; /* Remove default margin */
+    
+}
+
+#searchButton {
+    background-color: #c1aaa2; /* Set the background color */
+}
+
+#zipcodeInput {
+    margin-right: 3px;
+    width: 120px; /* Adjust input width */
+}
+#responseMessage,
+#errorMessage {
+    display: inline-block;
+    vertical-align: middle; /* Align elements vertically in the middle */
+    margin-left: 30px;
+}
+
+#responseMessage {
+    color: darkolivegreen;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#errorMessage {
+    color: darkred;
+    font-weight: bold;
+    margin-top: 5px;
+}
