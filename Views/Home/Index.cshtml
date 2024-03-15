@@ -1,71 +1,75 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<!--BACKGROUND IMAGE-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <style>
-        h1 {
-            margin: 0;
-            padding: 0;
-            background-size: 100vw auto; 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-image: url('/images/homepage.png');
-            color: black;
-            padding: 20px;
-            text-align: left;
-        }
-    </style>
-</head>
-<body>
-    <h1>AJ's Cleaning Servies</h1>
-</body>
-</html>
-<!--EMBEDDED FACEBOOK REVIEWS CAROUSEL-->
-<html>
+
 <head>
     <link rel="stylesheet" href="~/css/ReviewCarousel.css">
-    <script src="~/js/ReviewCarousel.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css">
+    <link rel="stylesheet" href="~/css/Map.css">
 
 </head>
+
 <body>
-    <div class="testimonials-container">
-    <h2>Testimonials</h2>
-    <div class="review">
-        <span class="heading"><img src="./images/facebookLogo.png" alt="Facebook Logo"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-          
+    <div class="col-lg-auto">
+        <div class="w-100 title-bg row rounded-3">
+            <h1 style="font-size:3.3em;">AJ's Cleaning Services</h1>
+        </div>
+        <div class="row h-100" >
+            <div class="testimonials-container col-6 mx-auto">
+                <h2 class="text-center mt-4">Testimonials</h2>
+                <div class="review">
+                    <div class="heading">
+                        <img src="./images/facebookLogo.png" alt="Facebook Logo">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+
+                    <div class="review__items">
+                        <iframe class="review-text" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnicolewolf1994%2Fposts%2F7920919534587015&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
     
-        <div class="review__items">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnicolewolf1994%2Fposts%2F7920919534587015&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-        <div class="review__items">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnicolewolf1994%2Fposts%2F7920919534587015&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+                    <div class="review__items">
+                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnicolewolf1994%2Fposts%2F7920919534587015&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
+                    <div class="review__items">
+                        <iframe class="review-text" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnicolewolf1994%2Fposts%2F7920919534587015&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
 
-        <div class="review__items">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fjade.olshove%2Fposts%2F10220142974585739&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+                    <div class="review__items">
+                        <iframe class="review-text" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fjade.olshove%2Fposts%2F10220142974585739&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
 
-        <div class="review__items">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D10118258737016474%26id%3D2360325&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+                    <div class="review__items">
+                        <iframe class="review-text" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D10118258737016474%26id%3D2360325&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
 
-        <div class="review__items">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D10118258737016474%26id%3D2360325&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <div class="review__items">
+                        <iframe class="review-text" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D10118258737016474%26id%3D2360325&show_text=true&width=800" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6  mx-auto">
+                <h2 class="text-center mt-4">Service Area</h2>
+                <div id="map-container mx-auto">
+                    <div id="search-container">
+                        <input type="text" id="zipcodeInput" placeholder="Enter Zipcode" onkeydown="if (event.key === 'Enter') searchByZipcode()">
+                        <button id="searchButton" onclick="searchByZipcode()">Search</button>
+                        <p id="responseMessage"></p>
+                        <p id="errorMessage"></p>
+                    </div>
+                    <div id="map"></div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.js"></script>
+    <script src="~/js/ReviewCarousel.js"></script>
+    <script src="~/js/HomeGallery.js"></script>
     <script>
         let rev = 0;
         carousel(rev);
@@ -75,33 +79,6 @@
             nextReview();
         }, 5000); // Change interval speed
     </script>
-</body>
-</html>
-
-<!--SERVICEABLE AREA MAP-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Area Map</title>
-    <link rel="stylesheet" href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css">
-    <link rel="stylesheet" href="~/css/Map.css">
-</head>
-<body>
-    <h3>Service Area</h3>
-    <div id="map-container">
-        <div id="search-container">
-            <input type="text" id="zipcodeInput" placeholder="Enter Zipcode" onkeydown="if (event.key === 'Enter') searchByZipcode()">
-            <button id="searchButton" onclick="searchByZipcode()">Search</button>
-            <p id="responseMessage"></p>
-            <p id="errorMessage"></p>
-        </div>
-        <div id="map"></div>
-    </div>
-
-    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.js"></script>
-    <script src="~/js/ReviewCarousel.js"></script>
     <script>
         maptilersdk.config.apiKey = 'u9ijznZS8hK5mHSHy1I0';
         let map = null;
@@ -189,4 +166,3 @@
     </script>
 </body>
 
-</html>

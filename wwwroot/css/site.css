@@ -106,7 +106,6 @@ h2{
     width: 80%;
     height: 100%;
     background-image: url('/images/succulents_1.png');
-   
     background-size: contain;
     background-position: center bottom ;
     background-repeat: no-repeat;
@@ -126,4 +125,19 @@ h2{
     -1px 1px 0 #000,
     -1px -1px 0 #000,
     1px -1px 0 #000;
+}
+.title-bg {
+    margin: 0;
+    padding: 0;
+    min-height: 200px; /* Set a minimum height */
+    max-height: 600px; /* Set a maximum height */
+    width: 100%;
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    background-image: url('/images/homepage.png');
+    color: white;
+    padding: 20px;
+    text-align: left;
+    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
 }

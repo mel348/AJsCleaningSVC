@@ -1,109 +1,66 @@
-﻿* {
-    box-sizing: border-box;
+﻿.testimonials-container {
+    width: 100%;
+    max-width: 400px;
 }
-.testimonials-container h2 {
-    font-family: "Lovers Quarrel", cursive;
-    font-weight: 500;
-    font-size: 3em;
-    font-style: normal;
-    margin-top: 250px;
-    margin-left: 100px;
-    display: inline-block; /* Add this to make them inline */
-    height: 100px;
+.review-text {
+    height: 100%; /* Occupy all available space within the review__items container */
+    overflow: auto; /* Enable scrolling if content exceeds the available space */
 }
-
 .review {
-    position: fixed;
-    bottom: -30px;
-    left: 90px;
-    width: 800px;
-    max-height: auto;
-    overflow: auto;
-    margin: 5px;
+    position: relative;
+    height: 100%; /* Ensure the review section fills the container */
+    margin: 0 auto; /* Center the review container */
     padding: 10px;
     border: 2px solid #000000;
-    transform: scale(0.85);
-    transform-origin: top left;
     background-color: #e6d9c7;
+    overflow: auto;
 }
 
-/* pseudo-element for the top gray portion */
-    .review::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 25%; /* Adjust the height as needed */
-        background-color: lightgray;
-        z-index: -1; /* Push the pseudo-element behind the content */
-    }
-
-.review__items {
-    width: 100%;
+.review__items iframe {
     margin-top: 10px;
-    margin-bottom: 5px; /* Spacing between review items */
+    overflow-wrap: break-word; /* Allow long words to break and wrap onto the next line */
+    height: 400px; /* Set the height to fill the remaining space */
 }
 
 .review iframe {
+    display: block;
     width: 100%;
-    height: 200px;
-    margin-bottom: 5px;
+    height: 100%; /* Fill the entire height of the review item */
 }
-
 .heading {
-    margin-left: 280px;
-    font-size: 20px;
-    text-align: center;
-}
-/*Logo*/
-.fa {
-    font-size: 30px;
-    margin-left: 20px;
-    text-align: center; 
-}
-/*Stars*/
-.checked {
-    color: orange;
-    text-align: center; 
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Adjust as needed */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically */
 }
 
-/* Three column layout */
-.side {
-    /*float: left;*/
-    width: 15%;
-    margin-left: 25px;
-    margin-top: 20px;
-}
-
-.middle {
-    margin-top: 10px;
-    float: left;
-    width: 70%;
-}
-
-/* Place text to the right */
-.right {
-    text-align: right;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-    .side, .middle {
-        width: 100%;
+    .heading img {
+        width: 40px; /* Adjust the size of the Facebook logo */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 10px; /* Adjust spacing */
     }
 
-    .right {
-        display: none;
+.fa {
+    font-size: 20px; /* Decreased size for stars */
+    color: orange;
+    margin-right: 5px; /* Adjust spacing */
+}
+
+.review-text{
+    height:fit-content;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .heading {
+        flex-wrap: nowrap; /* Prevent wrapping on smaller screens */
+    }
+
+        .heading img {
+            width: 30px; /* Adjust size for smaller screens */
+            margin-right: 0; /* Remove right margin */
+        }
+
+    .fa {
+        font-size: 16px; /* Decrease size further for smaller screens */
+        margin-right: 0; /* Remove right margin */
     }
 }
