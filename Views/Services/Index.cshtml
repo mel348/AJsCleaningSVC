@@ -1,47 +1,62 @@
 ﻿@model IEnumerable<AJsCleaning.Models.Services>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Services";
 }
+<style>
+    html {
+        background-image: url('/images/succulents_2.png');
+        background-size: cover;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        width:100%;
+ 
+    }
+</style>
+<div class=" " style="height:90vh;" >
+    <h1 class=" ">Services</h1>
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Service)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Service)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table ">
+        <tbody>
+            @foreach (var typeGroup in Model.GroupBy(item => item.Type))
+            {
+                <tr class="type-row" >
+                    <th colspan="2" class="toggle-service">@Html.DisplayFor(modelItem => typeGroup.Key)</th>
+                    <th class="text-end toggle-service pe-4">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </th>
+                </tr>
+
+                @foreach (var serviceGroup in typeGroup.GroupBy(item => item.Service))
+                {
+                    <tr class="service-row">
+                        <th class="toggle-description" colspan="2">
+                            @Html.DisplayFor(modelItem => serviceGroup.First().Service)
+
+                        </th>
+                        <th class="toggle-description pe-5 text-end" colspan="1">
+                            <i class="fa-solid fa-caret-down"></i>
+                        </th>
+                        
+                    </tr>
+
+                    <tr class="description-row py-5 bg-pnk">
+                        <td colspan="3" >
+                            <span class="description" data-description="@Html.DisplayFor(modelItem => serviceGroup.First().Description)"></span>
+                            <div class="text-center">
+                                <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" >Edit</a> |
+                                <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+    <p class="text-end">
+        <a asp-action="Create">Create New</a>
+    </p>
+</div>
