@@ -133,9 +133,9 @@ h2{
     max-height: 600px; /* Set a maximum height */
     width: 100%;
     background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the background image */
+    background-position: center ; /* Center the background image */
     background-repeat: no-repeat;
-    background-image: url('/images/homepage.png');
+    background-image: url('/images/home-clean.jpg');
     color: white;
     padding: 20px;
     text-align: left;
