@@ -1,13 +1,16 @@
 ﻿.map-container {
+    background-color: #e6d9c7;
     width: 100%;
     height: auto;
-    border: 1px solid black;
     border-radius: 5px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    max-width: 450px ;
-    margin-bottom:10px;
+    max-width: 450px;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
+    -webkit-box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
+    -moz-box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
 }
 
 #map {
@@ -20,10 +23,10 @@
     padding: 10px;
     margin: 0;
 }
-
+/*
 #searchButton {
     background-color: #c1aaa2;
-}
+}*/
 
 #zipcodeInput {
     margin-right: 3px;
