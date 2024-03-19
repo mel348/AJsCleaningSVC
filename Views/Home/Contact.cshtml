@@ -1,0 +1,194 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/css/form.css"> <!-- Make sure to use the correct path here -->
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-container">
+                <h2>Contact us for an estimate!</h2>
+                <!--<form action="index.html" method="post">-->
+                    <form action="https://formspree.io/meman@mail.nmc.edu" method="post">
+
+<!--CONTACT DETAILS---------------------------------------------------------------------------------->
+                <fieldset>
+                    <legend>Contact Details</legend>
+
+                        <input type="name" id="name" name="user_FirstName" placeholder="First Name">
+                        <input type="name" id="name" name="user_LastName" placeholder="Last Name">
+                        <input type="company" id="company" name="user_company" placeholder="Company Name (if applicable)">
+                        <input type="phone" id="phone" name="user_phone" placeholder="Phone Number">
+                        <input type="email" id="email" name="user_email" placeholder="Email">
+                </fieldset>
+<!--ADDRESS------------------------------------------------------------------------------------------->
+                <fieldset>
+                    <legend>Address</legend>
+                        <input type="street1" id="street1" name="user_street1" placeholder="Street 1">
+                        <input type="street2" id="street2" name="user_street2" placeholder="Street 2">
+                        <input type="city" id="city" name="user_city" placeholder="City">
+                        <input type="state" id="state" name="user_state" placeholder="State">
+                        <input type="zipcode" id="zipcode" name="user_zipcode" placeholder="ZIP code">
+                 </fieldset>
+<!--SERVICE DETAILS------------------------------------------------------------------------------------>
+                <legend>Service Details</legend>
+                <label for="propertyType">What is the property type?</label>
+                    <select id="propertyType" name="user_propertyType" onchange="showFields()">
+                        <option value="">Select property type</option> <!-- Added blank option -->
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                <div id="residentialFields" style="display:none;">
+                     <label>Check services you're interested in:</label><br>
+                     <input type="checkbox" id="DeepCleaning" value="DeepCleaning" name="user_DeepCleaning">
+                     <label class="light" for="DeepCleaning">Deep Cleaning</label><br>
+
+                     <input type="checkbox" id="Organization" value="Organization" name="user_Organization">
+                     <label class="light" for="Organization">Organization</label><br>
+
+                     <input type="checkbox" id="NormalCleaning" value="NormalCleaning" name="user_NormalCleaning">
+                     <label class="light" for="NormalCleaning">Normal Cleaning</label><br>
+
+                     <input type="checkbox" id="MoveInOut" value="MoveInOut" name="user_MoveInOut">
+                     <label class="light" for="MoveInOut">Move-in/Move-out</label><br>
+
+                     <input type="checkbox" id="NewPostConstructionCleanUp" value="NewPostConstructionCleanUp" name="user_NewPostConstructionCleanUp">
+                     <label class="light" for="NewPostConstructionCleanUp">New & Post Construction Clean-Up</label><br>
+
+                     <input type="checkbox" id="RealEstateStaging" value="RealEstateStaging" name="user_RealEstateStaging">
+                     <label class="light" for="RealEstateStaging">Real Estate Staging</label><br>
+
+                     <input type="checkbox" id="NewBorn" value="NewBorn" name="user_NewBorn">
+                     <label class="light" for="NewBorn">New Born Arrival Cleaning</label><br>
+
+                     <input type="checkbox" id="Other" value="Other" name="user_Other">
+                     <label class="light" for="Other">Other:</label>
+                     <textarea id="Other" name="user_Other"></textarea>
+                </div>
+
+                <div id="commercialFields" style="display:none;">
+                     <label>Commercial Services:</label><br>
+                     <input type="checkbox" id="AirBnb" value="AirBnb" name="user_AirBnb">
+                     <label class="light" for="AirBnb">AirBnb's & Vacation Rentals</label><br>
+
+                     <input type="checkbox" id="OfficeCleaning" value="OfficeCleaning" name="user_OfficeCleaning">
+                     <label class="light" for="OfficeCleaning">Office Cleaning</label><br>
+
+                        <input type="checkbox" id="Other" value="Other" name="user_Other">
+                        <label class="light" for="Other">Other:</label>
+                        <textarea id="Other" name="user_Other"></textarea><br>
+                </div>
+
+                <div id="otherFields" style="display:none;">
+                     <label>Other Services:</label><br>
+                     <input type="checkbox" id="Gardening" value="Gardening" name="user_Gardening">
+                     <label class="light" for="Gardening">Gardening</label><br>
+
+                     <input type="checkbox" id="PetCare" value="PetCare" name="user_PetCare">
+                     <label class="light" for="PetCare">Pet Care</label><br>
+
+                     <input type="checkbox" id="GroceryShopping" value="GroceryShopping" name="user_GroceryShopping">
+                     <label class="light" for="GroceryShopping">Grocery Shopping</label><br>
+
+                     <input type="checkbox" id="LaundryServices" value="LaundryServices" name="user_LaundryServices">
+                     <label class="light" for="LaundryServices">Laundry Services</label><br>
+
+                        <input type="checkbox" id="Other" value="Other" name="user_Other">
+                        <label class="light" for="Other">Other:</label>
+                        <textarea id="Other" name="user_Other"></textarea><br>
+                </div>
+
+                    <script>
+                        function showFields() {
+                            var propertyType = document.getElementById("propertyType").value;
+                            var residentialFields = document.getElementById("residentialFields");
+                            var commercialFields = document.getElementById("commercialFields");
+                            var otherFields = document.getElementById("otherFields");
+
+                            residentialFields.style.display = "none";
+                            commercialFields.style.display = "none";
+                            otherFields.style.display = "none";
+
+                            if (propertyType === "residential") {
+                                residentialFields.style.display = "block";
+                            } else if (propertyType === "commercial") {
+                                commercialFields.style.display = "block";
+                            } else if (propertyType === "other") {
+                                otherFields.style.display = "block";
+                            }
+                        }
+                    </script>
+<!--STORIES TO BE CLEANED------------------------------------------------------------------------------->
+                    <label for="Stories">Number of stories to be cleaned (include basement as an additional story):</label>
+                    <select id="Stories" name="user_Stories" onchange="showFields()">
+                        <option value="">Choose an option</option> <!-- Added blank option -->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                    </select>
+<!--REMAINING QUESTIONS------------------------------------------------------------------------------->
+                    <fieldset>
+                        <label>Total Square Footage to be cleaned:</label>
+                        <input type="SquareFootage" id="SquareFootage" name="user_SquareFootage">
+                        <label>What cleaning frequency are you looking for? <br>(One-Time, Weekly, Every Other Week, Every Four Weeks, Occasional, etc):"</label>
+                        <input type="Frequency" id="Frequency" name="user_Frequency">
+                        <label>Is there any additional information we should know?</label>
+                        <textarea id="AddInfo" name="user_AddInfo"></textarea>
+<!--DATE/TIME----------------------------------------------------------------------------------------->
+                        <legend>Date/Time</legend>
+
+                        <label>What time works best for you?</label><br>
+                        <input type="checkbox" id="AnyTime" value="AnyTime" name="user_AnyTime">
+                        <label class="light" for="AnyTime">Any Time</label><br>
+
+                        <input type="checkbox" id="Morning" value="Morning" name="user_Morning">
+                        <label class="light" for="Morning">Morning</label><br>
+
+                        <input type="checkbox" id="Afternoon" value="Afternoon" name="user_Afternoon">
+                        <label class="light" for="Afternoon">Afternoon</label><br>
+
+                        <input type="checkbox" id="Evening" value="Evening" name="user_Evening">
+                        <label class="light" for="Evening">Evening</label>
+
+                        <label>What is your requested appointment day and time?</label>
+                        <label for="datepicker">First Choice:</label>
+                        <input type="date" id="datepicker" name="datepicker">
+                        <label for="datepicker2">Second Choice:</label>
+                        <input type="date" id="datepicker2" name="datepicker2"><br>
+                    </fieldset>
+<!--PETS--------------------------------------------------------------------------------------------->
+                    <fieldset>
+                        <legend>Pet Info</legend><br>
+                        <label>If you have pets please fill in the information below:</label><br>
+
+                        <input type="checkbox" id="Dog" value="Dog" name="user_Dog">
+                        <label class="light" for="Dog" rows="3" cols="30">Dog</label><br>
+                        <input type="checkbox" id="Cat" value="Cat" name="user_Cat">
+                        <label class="light" for="Cat">Cat</label><br>
+                        <input type="checkbox" id="Other" value="Other" name="user_Other">
+                        <label class="light" for="Other" rows="3" cols="30">Other</label><br><br>
+
+                        <textarea id="OtherPet" name="user_OtherPet">If other please explain:</textarea><br>
+                        <textarea id="SizeBreed" name="user_SizeBreed">Breed(or lbs.):</textarea><br>
+                        <textarea id="PetName" name="user_PetName">Name(s):</textarea><br>  
+                    </fieldset>
+
+                    <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

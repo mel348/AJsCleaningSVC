@@ -1,0 +1,175 @@
+﻿*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
+}
+
+.form-container {
+    max-width: 500px; /* Adjust as needed */
+    margin: 10px auto;
+    background: #8c9a8d; /* Background color of the form container */
+    padding: 30px; /* Padding from the edge of the container */
+}
+
+form {
+    background: #c1cdb7; /* Background color of the form */
+    padding: 20px; /* Padding inside the form */
+}
+
+
+h1 {
+    text-align: center;
+}
+h2 {
+    font-family: "Lovers Quarrel", cursive;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    font-size: 50px;
+}
+
+input[type="name"],
+input[type="company"],
+input[type="phone"],
+input[type="email"],
+input[type="street1"],
+input[type="street2"],
+input[type="city"],
+input[type="state"],
+input[type="zipcode"],
+input[type="SquareFootage"],
+input[type="Frequency"],
+input[type="date"],
+textarea,
+select {
+    border: none;
+    font-size: 13px;
+    height: 14px;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: ivory;
+    color: #000000;
+    /*box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;*/
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    margin: 0 4px 8px 0;
+    color: #d5bba6;
+}
+
+#OtherPet {
+    background-color: ivory;
+    height: 50px; /* Adjust the height as needed */
+    width: 100%; /* Ensures the textarea spans the full width */
+    padding: 10px; /* Add some padding for better appearance */
+    box-sizing: border-box; /* Ensures padding and border are included in the total height */
+}
+
+#SizeBreed {
+    background-color: ivory;
+    height: 50px; /* Adjust the height as needed */
+    width: 100%; /* Ensures the textarea spans the full width */
+    padding: 10px; /* Add some padding for better appearance */
+    box-sizing: border-box; /* Ensures padding and border are included in the total height */
+}
+#PetName {
+    background-color: ivory;
+    height: 50px; /* Adjust the height as needed */
+    width: 100%; /* Ensures the textarea spans the full width */
+    padding: 10px; /* Add some padding for better appearance */
+    box-sizing: border-box; /* Ensures padding and border are included in the total height */
+}
+#AddInfo {
+    background-color: ivory;
+    height: 50px; /* Adjust the height as needed */
+    width: 100%; /* Ensures the textarea spans the full width */
+    padding: 10px; /* Add some padding for better appearance */
+    box-sizing: border-box; /* Ensures padding and border are included in the total height */
+}
+select {
+    padding: 6px;
+    height: 32px;
+    border-radius: 2px;
+    font-size: 13px;
+}
+
+button {
+    padding: 10px 10px 10px 10px;
+    color: dimgray;
+    background-color: #c1aaa2;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    font-style: normal;
+    width: 30%;
+    border: 2px solid gray;
+    border-width: 3px 3px 3px;
+    display: block; /* Change display to block */
+    margin: 0 auto 20px auto; /* Center horizontally and add bottom margin */
+}
+
+fieldset {
+    margin-bottom: 30px;
+    border: none;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+legend {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    text-decoration: underline;
+    text-align: center;
+    width: 100%; /* Ensure the legend spans the full width */
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 4px;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 15px;
+}
+
+    label.light {
+        font-weight: 300;
+        display: inline;
+        color: black;
+    }
+
+/* Placeholder color */
+::placeholder {
+    color: black;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* For older versions of Firefox */
+input::-moz-placeholder {
+    color: black;
+}
+
+/* For Safari */
+input:-ms-input-placeholder {
+    color: black;
+}
+
+@media screen and (min-width: 480px) {
+
+    form {
+        max-width: 480px;
+    }
+}
