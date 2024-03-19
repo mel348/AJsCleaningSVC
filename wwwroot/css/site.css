@@ -1,5 +1,28 @@
+           /*************FONTS*************/
+.lovers-quarrel-regular {
+    font-family: "Lovers Quarrel", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nanum-myeongjo-regular {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+            /*************HTML TAGS*************/
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    background: #c1cdb7;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -8,15 +31,79 @@ html {
   }
 }
 
+
+body {
+
+  background:none;
+}
+
+.navbar {
+    background-image: linear-gradient(#c1aaa2, rgba(193, 205, 183, 0.1));
+}
+
+h1, h2 {
+    font-family: "Lovers Quarrel", cursive;
+    font-weight: 900;
+    font-style: normal;
+}
+h1{
+    font-size:3.5em;
+}
+
+
+            /*************CLASSES*************/
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
+.service-types-box {
+    background: #8c9a8d;
+    border-radius:10px;
+}
+.nav-link-th{
+    border-radius:7px;
+}
+.nav-link-th:hover {
+    border-radius:7px;
+    background-color: #c1aaa2;
+    color: white;
+}
+.th-btn-pink {
+    background-color: #c1aaa2;
+    border:2px solid #000000;
 }
 
-body {
-  margin-bottom: 60px;
+.type-row {
+    background-color: #8c9a8d;
+    height: 10%;
+    line-height: 60px;
+}
+.service-row {
+    height: 20px;
+    line-height: 20px;
+    background-color: rgba(193, 170, 162, .9);
+}
+.type-row:hover {
+    background-color: rgba(177,160,139);
+}
+.service-row:hover {
+    background-color: rgba(177,160,139, .96);
+}
+.bg-pnk {
+    background-color: rgba(193, 170, 162, .96);
+}
+.img-bg-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 100%;
+    background-image: url('/images/succulents_1.png');
+   
+    background-size: contain;
+    background-position: center bottom ;
+    background-repeat: no-repeat;
+}
+svc-body{
+
 }
