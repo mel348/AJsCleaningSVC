@@ -35,6 +35,7 @@ namespace AJsCleaning.Controllers
         {
             return View();
         }
+
         public IActionResult FAQ()
         {
             return View();

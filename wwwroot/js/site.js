@@ -52,4 +52,7 @@ $(function () {
         // Toggle visibility of description row
         descriptionRow.toggle();
     });
+    $('.navbar-toggle').on("click", function () {
+        $('#pushContent').slideToggle();
+    });
 });
