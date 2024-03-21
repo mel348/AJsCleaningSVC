@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html>
+    
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,22 @@
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="~/css/form.css"> <!-- Make sure to use the correct path here -->
 </head>
+
 <body>
+    <style>
+        input, textarea {
+            border-radius: 2px;
+        }
+    </style>
     <div class="row">
         <div class="col-md-12">
-            <div class="form-container">
+            <div class="form-container rounded-3">
                 <h2>Contact us for an estimate!</h2>
                 <!--<form action="index.html" method="post">-->
-                    <form action="https://formspree.io/meman@mail.nmc.edu" method="post">
+            <form action="https://formspree.io/meman@mail.nmc.edu" method="post" class="rounded-3">
 
 <!--CONTACT DETAILS---------------------------------------------------------------------------------->
-                <fieldset>
+                <fieldset class="rounded-3">
                     <legend>Contact Details</legend>
 
                         <input type="name" id="name" name="user_FirstName" placeholder="First Name">
@@ -186,7 +193,7 @@
                         <textarea id="PetName" name="user_PetName">Name(s):</textarea><br>  
                     </fieldset>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" class="w-50 rounded-3">Submit</button>
             </form>
         </div>
     </div>
