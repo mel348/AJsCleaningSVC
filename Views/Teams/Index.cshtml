@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AJsCleaning.Models.Team>
+@{
+    ViewData["Title"] = "Meet The Team";
+}
+<link rel="stylesheet" href="~/css/team.css" type="text/css" />
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <p class="text-right"><a href="@Url.Action("Create")">Create New</a></p>
+    @foreach (var team in Model)
+    {
+        <div class="column">
+            <div class="card">
+                <img src="@team.PhotoPath" alt="@team.Name" style="width:100%">
+                <div class="container">
+                    <h2>@team.Name</h2>
+                    <p class="title">@team.Title</p>
+                    <p class="bio">@team.Description</p>
+                    <p>
+                        <a href="@Url.Action("Edit", new { id = team.Id })">Edit</a> |
+                        <a href="@Url.Action("Details", new { id = team.Id })">Details</a> |
+                        <a href="@Url.Action("Delete", new { id = team.Id })">Delete</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,15 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AJsCleaning.Models;
+using Microsoft.Identity.Client;
+using System.Diagnostics;
 namespace AJsCleaning.Data
 {
     public class AJContext : DbContext
     {
+
+
         public AJContext(DbContextOptions<AJContext> options)
             : base(options)
         {
         }
 
         public DbSet<AJsCleaning.Models.Services> Services { get; set; } = null!;
+        public DbSet<AJsCleaning.Models.Team> Teams { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Services>().HasData(
@@ -100,6 +105,33 @@ namespace AJsCleaning.Data
 
                 }
             );
+
+            modelBuilder.Entity<Team>().HasData(
+                new Team { 
+                    Id = 1, 
+                    Name = "Janelle Fineout", 
+                    Title = "Owner", 
+                    Description = "Janelle is the co owner of AJ's Cleaning",
+                    PhotoPath = "/images/teams/Team-Janelle.jpg" 
+                },
+                new Team { 
+                    Id = 2, 
+                    Name = "Alyssah Fearnow", 
+                    Title = "Owner", 
+                    Description = "Alyssah is the co owner of AJ's Cleaning.", 
+                    PhotoPath = "/images/teams/Team-Alyssah.jpg" 
+                },
+                new Team {
+                    Id = 3,
+                    Name = "MeatLoaf",
+                    Title = "The Goodest Boy",
+                    Description = "I like long walks through the park, and the smell of rotisserie chicken. My cleaning specialty is licking plates clean.",
+                    PhotoPath = "/images/teams/Team-Meatloaf.jpg"
+                    }
+   );
+
+
+
         }
     }
 }
