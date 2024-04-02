@@ -53,10 +53,21 @@ namespace AJsCleaning.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Title,Description,Photo")] Team team)
+        public async Task<IActionResult> Create([Bind("Id,Name,Title,Description,PhotoPath")] Team team, IFormFile photo)
         {
             if (ModelState.IsValid)
             {
+                // Handle file upload
+                if (photo != null && photo.Length > 0)
+                {
+                    var fileName = Path.GetFileName(photo.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/teams", fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await photo.CopyToAsync(stream);
+                    }
+                    team.PhotoPath = $"/images/teams/{fileName}"; // Adjust the property name if different
+                }
                 _context.Add(team);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
