@@ -9,5 +9,5 @@ namespace AJsCleaning.Data
             : base(options)
         {
         }
-    }
+	}
 }
