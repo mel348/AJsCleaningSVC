@@ -32,9 +32,9 @@ namespace AJsCleaning
             builder.Services.AddAuthorization(options =>
             {
                 options.AddPolicy("readpolicy",
-                    builder => builder.RequireRole("Administrator", "Manager", "User"));
+                    builder => builder.RequireRole("Administrator", "User"));
                 options.AddPolicy("writepolicy",
-                    builder => builder.RequireRole("Administrator", "Manager"));
+                    builder => builder.RequireRole("Administrator"));
             });
 
             builder.Services.Configure<IdentityOptions>(options =>

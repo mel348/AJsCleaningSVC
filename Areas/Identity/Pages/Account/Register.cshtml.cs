@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -29,13 +31,16 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;  //added for roles
+
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -43,6 +48,8 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager; //added for roles
+
         }
 
         /// <summary>
@@ -97,11 +104,14 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+            public string Name { get; set; } // added for roles
+
         }
 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            ViewData["roles"] = _roleManager.Roles.ToList(); //added for roles
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -109,6 +119,8 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
+            var roleName = "User"; // Default role name
+            var role = _roleManager.Roles.FirstOrDefault(r => r.Name == roleName); // added for roles preset to user
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
@@ -121,6 +133,7 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+                    await _userManager.AddToRoleAsync(user, role.Name); // added for roles
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -128,9 +141,10 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
-                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl }, // changed for roles
                         protocol: Request.Scheme);
 
+                    // REMOVE _emailSender FOR HOST *************
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
@@ -149,10 +163,38 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
+            ViewData["roles"] = _roleManager.Roles.ToList();  // added for roles
 
             // If we got this far, something failed, redisplay form
             return Page();
         }
+        //private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        //{
+        //    try
+        //    {
+        //        MailMessage message = new MailMessage();
+        //        SmtpClient smtpClient = new SmtpClient();
+        //        message.From = new MailAddress("noreplyAJsCleaning@gmail.com"); //Network email @AJsCleaning.com
+        //        message.To.Add(email);
+        //        message.Subject = subject;
+        //        message.IsBodyHtml = true;
+        //        message.Body = confirmLink;
+
+        //        smtpClient.Port = 25;           // THIS MUST BE CHANGED FOR HOST
+        //        smtpClient.Host = "localhost"; // THIS MUST BE CHANGED FOR HOST
+
+        //        smtpClient.EnableSsl = true;
+        //        smtpClient.UseDefaultCredentials = false;
+        //        smtpClient.Credentials = new NetworkCredential("noreplyajscleaning@gmail.com", "password!"); //Same email as above with the password for smtp server on host
+        //        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //        smtpClient.Send(message);
+
+        //        return true;
+        //    }
+        //    catch { 
+        //        return false;
+        //    }
+        //}
 
         private IdentityUser CreateUser()
         {
