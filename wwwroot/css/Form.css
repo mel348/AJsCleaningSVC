@@ -1,19 +1,30 @@
 ﻿*, *:before, *:after {
+    margin:0;
+    padding:0;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Nunito', sans-serif;
-    color: #384047;
+html{
+    background: transparent;
 }
 
+body {
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
+    background-image: url('../images/plantsForm.png'); /* specify the path to your background image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
 .form-container {
-    max-width: 500px; /* Adjust as needed */
+    max-width: 500px;
     margin: 10px auto;
-    background: #8c9a8d; /* Background color of the form container */
-    padding: 30px; /* Padding from the edge of the container */
+    background: #8c9a8d; 
+    padding: 30px; 
 }
 
 form {
@@ -45,7 +56,6 @@ input[type="zipcode"],
 input[type="SquareFootage"],
 input[type="Frequency"],
 input[type="date"],
-textarea,
 select {
     border: none;
     font-size: 13px;
@@ -66,37 +76,19 @@ input[type="checkbox"] {
     color: #d5bba6;
 }
 
-#OtherPet {
+#OtherPet,
+#SizeBreed,
+#PetName,
+#AddInfo{
     background-color: ivory;
-    height: 50px; /* Adjust the height as needed */
-    width: 100%; /* Ensures the textarea spans the full width */
-    padding: 10px; /* Add some padding for better appearance */
-    box-sizing: border-box; /* Ensures padding and border are included in the total height */
+    height: 60px; 
+    width: 100%; 
+    padding: 10px;
+    box-sizing: border-box; 
 }
 
-#SizeBreed {
-    background-color: ivory;
-    height: 50px; /* Adjust the height as needed */
-    width: 100%; /* Ensures the textarea spans the full width */
-    padding: 10px; /* Add some padding for better appearance */
-    box-sizing: border-box; /* Ensures padding and border are included in the total height */
-}
-#PetName {
-    background-color: ivory;
-    height: 50px; /* Adjust the height as needed */
-    width: 100%; /* Ensures the textarea spans the full width */
-    padding: 10px; /* Add some padding for better appearance */
-    box-sizing: border-box; /* Ensures padding and border are included in the total height */
-}
-#AddInfo {
-    background-color: ivory;
-    height: 50px; /* Adjust the height as needed */
-    width: 100%; /* Ensures the textarea spans the full width */
-    padding: 10px; /* Add some padding for better appearance */
-    box-sizing: border-box; /* Ensures padding and border are included in the total height */
-}
 select {
-    padding: 6px;
+    padding: 0px;
     height: 32px;
     border-radius: 2px;
     font-size: 13px;
@@ -113,7 +105,7 @@ button {
     width: 30%;
     border: 2px solid gray;
     border-width: 3px 3px 3px;
-    display: block; /* Change display to block */
+    display: block; 
     margin: 0 auto 20px auto; /* Center horizontally and add bottom margin */
 }
 
