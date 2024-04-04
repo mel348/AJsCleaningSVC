@@ -133,6 +133,16 @@ body {
             transform: scale(1, 1);
         }
 
+        [id^=lightbox-] .content:hover > a.previous {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
+
+        [id^=lightbox-] .content:hover > a.next {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
+
         [id^=lightbox-] .content:hover > .title {
             opacity: 1;
             transform: translateY(-3px);
@@ -199,4 +209,46 @@ body {
 
         [id^=lightbox-] a.close::after {
             content: "X";
+        }
+
+    [id^=lightbox-] a.previous {
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0, 0);
+        opacity: 0;
+        transform-origin: left;
+        text-decoration: none;
+        color: #fff;
+    }
+
+        [id^=lightbox-] a.previous::after {
+            content: "<";
+        }
+
+    [id^=lightbox-] a.next {
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0, 0);
+        opacity: 0;
+        transform-origin: bottom center;
+        text-decoration: none;
+        color: #fff;
+    }
+
+        [id^=lightbox-] a.next::after {
+            content: ">";
         }
