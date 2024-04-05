@@ -119,7 +119,7 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-            var roleName = "User"; // Default role name
+            var roleName = "Administrator"; // Default role name
             var role = _roleManager.Roles.FirstOrDefault(r => r.Name == roleName); // added for roles preset to user
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
@@ -133,7 +133,7 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    await _userManager.AddToRoleAsync(user, role.Name); // added for roles
+                    await _userManager.AddToRoleAsync(user, roleName); // added for roles
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -144,10 +144,10 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl }, // changed for roles
                         protocol: Request.Scheme);
 
-                    // REMOVE _emailSender FOR HOST *************
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    // REMOVE _emailSender. FOR HOST *************
+                    await SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                    //ViewData["message"] = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
@@ -168,33 +168,34 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
-        //private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
-        //{
-        //    try
-        //    {
-        //        MailMessage message = new MailMessage();
-        //        SmtpClient smtpClient = new SmtpClient();
-        //        message.From = new MailAddress("noreplyAJsCleaning@gmail.com"); //Network email @AJsCleaning.com
-        //        message.To.Add(email);
-        //        message.Subject = subject;
-        //        message.IsBodyHtml = true;
-        //        message.Body = confirmLink;
+        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                message.From = new MailAddress("ajscleaning101@outlook.com"); //Network email @AJsCleaning.com
+                message.To.Add(email);
+                message.Subject = subject;
+                message.IsBodyHtml = true;
+                message.Body = confirmLink;
 
-        //        smtpClient.Port = 25;           // THIS MUST BE CHANGED FOR HOST
-        //        smtpClient.Host = "localhost"; // THIS MUST BE CHANGED FOR HOST
+                smtpClient.Port = 587;           // THIS MUST BE CHANGED FOR HOST
+                smtpClient.Host = "smtp-mail.outlook.com"; // THIS MUST BE CHANGED FOR HOST
 
-        //        smtpClient.EnableSsl = true;
-        //        smtpClient.UseDefaultCredentials = false;
-        //        smtpClient.Credentials = new NetworkCredential("noreplyajscleaning@gmail.com", "password!"); //Same email as above with the password for smtp server on host
-        //        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //        smtpClient.Send(message);
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("ajscleaning101@outlook.com", "TRelopanos4275!"); //Same email as above with the password for smtp server on host
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Send(message);
 
-        //        return true;
-        //    }
-        //    catch { 
-        //        return false;
-        //    }
-        //}
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         private IdentityUser CreateUser()
         {

@@ -19,6 +19,9 @@ namespace AJsCleaning
             builder.Services.AddDbContext<AJContext>(options =>
             options.UseSqlServer(connectionString));
 
+            //builder.Services.AddTransient<IEmailSender, EmailSender>();
+            //builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+
             //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
