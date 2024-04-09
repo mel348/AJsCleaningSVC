@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AJsCleaning.Data;
+using AJsCleaning.Models;
 
-namespace AJsCleaning.Models
+namespace AJsCleaning.Controllers
 {
     public class TeamsController : Controller
     {

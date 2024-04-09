@@ -6,7 +6,12 @@
 
 <h1>@ViewData["Title"]</h1>
 <div class="row">
-    <p class="text-right"><a href="@Url.Action("Create")">Create New</a></p>
+    @if (User.IsInRole("Administrator"))
+    {
+        <p class="text-end">
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
     @foreach (var team in Model)
     {
         <div class="column">
@@ -17,9 +22,13 @@
                     <p class="title">@team.Title</p>
                     <p class="bio">@team.Description</p>
                     <p>
-                        <a href="@Url.Action("Edit", new { id = team.Id })">Edit</a> |
-                        <a href="@Url.Action("Details", new { id = team.Id })">Details</a> |
-                        <a href="@Url.Action("Delete", new { id = team.Id })">Delete</a>
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <div class="text-center">
+                                <a asp-controller="Teams" asp-action="Edit" asp-route-id="@team.Id">Edit</a> |
+                                <a asp-controller="Teams" asp-action="Delete" asp-route-id="@team.Id">Delete</a>
+                            </div>
+                        }
                     </p>
                 </div>
             </div>
