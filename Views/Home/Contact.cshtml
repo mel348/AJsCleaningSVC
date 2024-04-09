@@ -225,9 +225,31 @@
                         <textarea id="PetName" name="PetName" placeholder="Name(s): "></textarea><br>
                     </fieldset>
 
-                    <button type="submit" class="w-50 rounded-3">Submit</button>
-            </form>
-        </div>
+                    <button type="submit" id="submit" class="btn" data-toggle="modal" data-target="#exampleModal">Submit</button>
+
+                </form>
+
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> 
+                                <img src="/images/tick.png" />
+                                </h5>
+                        </div>
+                        <div class="modal-body">
+                            Success!
+                        </div>
+                        
+                        <script>
+                            $(document).ready(function () {
+                                $("#submit").click(function () {
+                                    $("#exampleModal").modal('show'); // Show the modal
+                                });
+                            });
+                        </script>
     </div>
 </body>
 </html>
