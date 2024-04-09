@@ -30,6 +30,11 @@ html, body {
     font-size: 16px;
   }
 }
+@media screen and (max-width: 480px) {
+    .w-100.title-bg.row.rounded-3 {
+        background-position: unset;
+    }
+}
 
 
 body {
@@ -47,7 +52,7 @@ h1, h2 {
     font-style: normal;
 }
 h1{
-    font-size:3em;
+    text-align: center;
 }
 h2{
     font-size:2.2em;
@@ -145,15 +150,17 @@ table {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .title-bg {
+    position:relative;
     margin: 0;
     padding: 0;
-    min-height: 378px; /* Set a minimum height */
+    min-height: 320px; /* Set a minimum height */
     max-height: 600px; /* Set a maximum height */
     width: 100%;
-    background-size: cover; /* Cover the entire container */
+    background-color: #e6d9c7;
+    background-size: cover;  /*Cover the entire container */
     background-position: center bottom; /* Center the background image */
     background-repeat: no-repeat;
-    background-image: url('/images/home-clean.jpg');
+    background-image: url('/images/Homepage1.png');
     color: white;
     padding: 20px;
     text-align: left;
@@ -162,3 +169,4 @@ table {
     -webkit-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
     -moz-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
 }
+
