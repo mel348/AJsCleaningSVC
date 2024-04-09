@@ -34,6 +34,9 @@ html, body {
     .w-100.title-bg.row.rounded-3 {
         background-position: unset;
     }
+    .title-bg{
+        max-height:150px;
+    }
 }
 
 
