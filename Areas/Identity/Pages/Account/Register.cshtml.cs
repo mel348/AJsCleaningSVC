@@ -172,20 +172,22 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
         {
             try
             {
+                string fromMail = "ajscleaning231@gmail.com";
+                string fromPassword = "fknxxzzotqywqbru";
                 MailMessage message = new MailMessage();
                 SmtpClient smtpClient = new SmtpClient();
-                message.From = new MailAddress("ajscleaning101@outlook.com"); //Network email @AJsCleaning.com
+                message.From = new MailAddress(fromMail); //Network email @AJsCleaning.com
                 message.To.Add(email);
                 message.Subject = subject;
                 message.IsBodyHtml = true;
                 message.Body = confirmLink;
 
                 smtpClient.Port = 587;           // THIS MUST BE CHANGED FOR HOST
-                smtpClient.Host = "smtp-mail.outlook.com"; // THIS MUST BE CHANGED FOR HOST
+                smtpClient.Host = "smtp.gmail.com"; // THIS MUST BE CHANGED FOR HOST
 
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("ajscleaning101@outlook.com", "TRelopanos4275!"); //Same email as above with the password for smtp server on host
+                smtpClient.Credentials = new NetworkCredential(fromMail, fromPassword); //Same email as above with the password for smtp server on host
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.Send(message);
 

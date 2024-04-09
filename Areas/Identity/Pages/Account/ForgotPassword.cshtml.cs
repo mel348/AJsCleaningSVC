@@ -90,14 +90,14 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
                 string fromPassword = "fknxxzzotqywqbru";
                 MailMessage message = new MailMessage();
                 SmtpClient smtpClient = new SmtpClient();
-                message.From = new MailAddress(fromMail); //Network email @AJsCleaning.com
+                message.From = new MailAddress(fromMail); 
                 message.To.Add(email);
                 message.Subject = subject;
                 message.IsBodyHtml = true;
                 message.Body = confirmLink;
 
-                smtpClient.Port = 587;           // THIS MUST BE CHANGED FOR HOST
-                smtpClient.Host = "smtp.gmail.com"; // THIS MUST BE CHANGED FOR HOST
+                smtpClient.Port = 587;           
+                smtpClient.Host = "smtp.gmail.com"; 
 
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
