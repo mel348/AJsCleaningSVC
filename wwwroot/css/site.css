@@ -1,4 +1,4 @@
-           /*************FONTS*************/
+ /*************FONTS*************/
 .lovers-quarrel-regular {
     font-family: "Lovers Quarrel", cursive;
     font-weight: 400;
@@ -31,142 +31,208 @@ html, body {
   }
 }
 @media screen and (max-width: 480px) {
-    .w-100.title-bg.row.rounded-3 {
+    .title-bg {
+        background-position: unset;
+    }
+}
+@media (max-width: 767px) {
+    .title-bg {
+        min-height: 200px; 
+        max-height: 400px;
         background-position: unset;
     }
 }
 
 
-body {
+    body {
+        background: none;
+    }
 
-  background:none;
-}
+    .navbar {
+        background-image: linear-gradient(#c1aaa2, rgba(193, 205, 183, 0.1));
+    }
 
-.navbar {
-    background-image: linear-gradient(#c1aaa2, rgba(193, 205, 183, 0.1));
-}
+    h1, h2 {
+        font-family: "Lovers Quarrel", cursive;
+        font-weight: 500;
+        font-style: normal;
+    }
 
-h1, h2 {
-    font-family: "Lovers Quarrel", cursive;
-    font-weight: 500;
-    font-style: normal;
-}
-h1{
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    table {
+        box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
+        -webkit-box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
+        -moz-box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
+        border-collapse: separate;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-spacing: 0;
+        border-collapse: separate;
+        border-radius: 10px;
+    }
+
+footer {
+    position: fixed; 
     text-align: center;
-}
-h2{
-    font-size:2.2em;
-}
-table {
-    box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
-    -webkit-box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
-    -moz-box-shadow: 0px 5px 24px 4px rgba(140,154,141,1);
-    border-collapse: separate;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-spacing: 0;
-    border-collapse: separate;
-    border-radius: 10px;
-}
-
-
-
-            /*************CLASSES*************/
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-.service-types-box {
-    background: #8c9a8d;
-    border-radius:10px;
-}
-.nav-link-th{
-    border-radius:7px;
-}
-.nav-link-th:hover {
-    border-radius:7px;
+    padding: 2px;
     background-color: #c1aaa2;
-    color: white;
-}
-.th-btn-pink {
-    background-color: #c1aaa2;
-    border:2px solid #000000;
-}
-.th-btn-pink:hover {
-    background-color: #e0d4d0;
-    border: 2px solid #000000;
-}
-
-.type-row {
-    background-color: #8c9a8d;
-    height: 10%;
-    line-height: 60px;
-}
-.service-row {
-    height: 20px;
-    line-height: 20px;
-    background-color: rgba(193, 170, 162, .9);
-}
-.type-row:hover {
-    background-color: rgba(177,160,139);
-}
-.service-row:hover {
-    background-color: rgba(177,160,139, .96);
-}
-.bg-pnk {
-    background-color: rgba(193, 170, 162, .96);
-}
-.img-bg-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 100%;
-    background-image: url('/images/succulents_1.png');
-    background-size: contain;
-    background-position: center bottom ;
-    background-repeat: no-repeat;
-}
-.th-bg-header {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 6px;
-    padding: 15px; /* Add padding as needed */
-}
-.th-h1-op {
-    font-size: 2.6em;
-    color: white;
-    text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    -1px -1px 0 #000,
-    1px -1px 0 #000;
-}
-.th-msg {
-    font-size:12px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.title-bg {
-    position:relative;
-    margin: 0;
-    padding: 0;
-    min-height: 320px; /* Set a minimum height */
-    max-height: 600px; /* Set a maximum height */
+    opacity: 0.8;
+    margin-top: 2px;
+    height: 25px;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 14px;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: #e6d9c7;
-    background-size: cover;  /*Cover the entire container */
-    background-position: center bottom; /* Center the background image */
-    background-repeat: no-repeat;
-    background-image: url('/images/Homepage1.png');
+}
+
+@media screen and (max-width: 600px) {
+    footer {
+        height: auto; 
+        padding: 12px; 
+        font-size: 13px; 
+    }
+}
+
+
+    /*************CLASSES*************/
+    .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    }
+
+    .service-types-box {
+        background: #8c9a8d;
+        border-radius: 10px;
+    }
+
+    .nav-link-th {
+        border-radius: 7px;
+    }
+
+        .nav-link-th:hover {
+            border-radius: 7px;
+            background-color: #c1aaa2;
+            color: white;
+        }
+
+    .th-btn-pink {
+        background-color: #c1aaa2;
+        border: 2px solid #000000;
+    }
+
+        .th-btn-pink:hover {
+            background-color: #e0d4d0;
+            border: 2px solid #000000;
+        }
+
+    .type-row {
+        background-color: #8c9a8d;
+        height: 10%;
+        line-height: 60px;
+    }
+
+    .service-row {
+        height: 20px;
+        line-height: 20px;
+        background-color: rgba(193, 170, 162, .9);
+    }
+
+    .type-row:hover {
+        background-color: rgba(177,160,139);
+    }
+
+    .service-row:hover {
+        background-color: rgba(177,160,139, .96);
+    }
+
+    .bg-pnk {
+        background-color: rgba(193, 170, 162, .96);
+    }
+
+    .img-bg-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 100%;
+        background-image: url('/images/succulents_1.png');
+        background-size: contain;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+    }
+
+    .th-bg-header {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 6px;
+        padding: 15px; 
+    }
+
+    .th-h1-op {
+        font-size: 2.6em;
+        color: white;
+        text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+    }
+
+    .th-msg {
+        font-size: 12px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+.title-bg {
+    position: relative; 
+    margin: 0;
+    width: 100%;
+    height: auto;
     color: white;
-    padding: 20px;
-    text-align: left;
+    text-align: center;
     text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
     box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
     -webkit-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
     -moz-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
+}
+
+    .title-bg img {
+        display: block; 
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto; 
+        z-index: -1; 
+    }
+
+    .title-bg h1 {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        margin: 0;
+        z-index: 1;
+        font-size: 40px;
+}
+@media screen and (max-width: 767px) {
+    .title-bg img {
+        display: unset; 
+    }
+}
+.footer-details a {
+    color: black; 
+}
+.footer-details p::before {
+    content: "\00A9"; /* Unicode for the copyright symbol */
+    display: inline-block;
+    margin-right: 5px; /* Add some space between the symbol and the text */
 }
 
