@@ -30,9 +30,9 @@
             </div>
             <div class="form-group" style="display:none;">
                 <label asp-for="Input.Name">Account Type</label>
-                <input asp-for="Input.Name" type="hidden" value="User" /> @* preset to user *@
+                <input asp-for="Input.Name" type="hidden" value="Administrator" /> @* preset to user *@
                 <select class="form-control" asp-items='new SelectList(roles,"Id","Name")' disabled>
-                    <option value="User" selected>User</option> @* preset to user *@
+                    <option value="Administrator" selected>Administrator</option> @* preset to user *@
                 </select>
                 <span asp-validation-for="Input.Name" class="text-danger"></span>
             </div>

@@ -30,6 +30,7 @@
 
 .bio {
     font: nanum-myeongjo-regular;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 650px) {
