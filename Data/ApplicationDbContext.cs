@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AJsCleaning.Data
@@ -9,5 +10,12 @@ namespace AJsCleaning.Data
             : base(options)
         {
         }
-	}
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            //Calling ModelBuilderExtension Seed function
+            builder.Seed();
+        }
+    }
 }
