@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AJsCleaning.Data;
 using AJsCleaning.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AJsCleaning.Controllers
 {
@@ -44,6 +45,7 @@ namespace AJsCleaning.Controllers
         }
 
         // GET: Services/Create
+        [Authorize(Policy = "writepolicy")]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +56,7 @@ namespace AJsCleaning.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Create([Bind("Id,Type,Service,Description")] Services services)
         {
             if (ModelState.IsValid)
@@ -66,6 +69,7 @@ namespace AJsCleaning.Controllers
         }
 
         // GET: Services/Edit/5
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,6 +90,7 @@ namespace AJsCleaning.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Type,Service,Description")] Services services)
         {
             if (id != services.Id)
@@ -117,6 +122,7 @@ namespace AJsCleaning.Controllers
         }
 
         // GET: Services/Delete/5
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +143,7 @@ namespace AJsCleaning.Controllers
         // POST: Services/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var services = await _context.Services.FindAsync(id);

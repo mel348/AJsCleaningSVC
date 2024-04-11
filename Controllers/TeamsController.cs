@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AJsCleaning.Data;
 using AJsCleaning.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AJsCleaning.Controllers
 {
@@ -44,7 +45,9 @@ namespace AJsCleaning.Controllers
         }
 
         // GET: Teams/Create
+        [Authorize(Policy = "writepolicy")]
         public IActionResult Create()
+
         {
             return View();
         }
@@ -54,6 +57,7 @@ namespace AJsCleaning.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Create([Bind("Id,Name,Title,Description,PhotoPath")] Team team, IFormFile photo)
         {
             if (ModelState.IsValid)
@@ -77,6 +81,7 @@ namespace AJsCleaning.Controllers
         }
 
         // GET: Teams/Edit/5
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -97,6 +102,7 @@ namespace AJsCleaning.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Title,Description,Photo")] Team team, IFormFile photo)
         {
             if (id != team.Id)
@@ -140,6 +146,7 @@ namespace AJsCleaning.Controllers
         }
 
         // GET: Teams/Delete/5
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -160,6 +167,7 @@ namespace AJsCleaning.Controllers
         // POST: Teams/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "writepolicy")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var team = await _context.Teams.FindAsync(id);

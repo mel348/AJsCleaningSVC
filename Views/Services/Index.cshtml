@@ -5,7 +5,7 @@
 }
 <style>
     html {
-        background-image: url('/images/succulents_2.png');
+        background-image: url('/images/succulents_3.png');
         background-size: cover;
         background-position: center bottom;
         background-repeat: no-repeat;
@@ -41,22 +41,28 @@
                         </th>
                         
                     </tr>
-
-                    <tr class="description-row py-5 bg-pnk">
-                        <td colspan="3" >
-                            <span class="description" data-description="@Html.DisplayFor(modelItem => serviceGroup.First().Description)"></span>
-                            <div class="text-center">
-                                <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" >Edit</a> |
-                                <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id">Delete</a>
-                            </div>
+                    
+                        <tr class="description-row py-5 bg-pnk">
+                            <td colspan="3" >
+                                <span class="description" data-description="@Html.DisplayFor(modelItem => serviceGroup.First().Description)"></span>
+                            @if (User.IsInRole("Administrator"))
+                            {
+                                <div class="text-center">
+                                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" >Edit</a> |
+                                    <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id">Delete</a>
+                                </div>
+                            }
                         </td>
-                    </tr>
-
+                        </tr>
+                    
                 }
             }
         </tbody>
     </table>
-    <p class="text-end">
-        <a asp-action="Create">Create New</a>
-    </p>
+    @if (User.IsInRole("Administrator"))
+    {
+        <p class="text-end">
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
 </div>

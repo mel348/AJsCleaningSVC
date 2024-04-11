@@ -1,0 +1,255 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/css/form.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+
+
+</head>
+
+<body>
+    <style>
+        input, textarea {
+            border-radius: 2px;
+        }
+    </style>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-container rounded-3">
+                <h2>Contact us for an estimate!</h2>
+                <form id="myForm" method="post" action="/Contact/SendEmail">
+
+<!--CONTACT DETAILS---------------------------------------------------------------------------------->
+
+                <fieldset class="rounded-3">
+                    <legend>Contact Details</legend>
+
+                        <input type="name" id="FirstName" name="FirstName" placeholder="First Name">
+                        <input type="name" id="LastName" name="LastName" placeholder="Last Name">
+                        <input type="company" id="company" name="Company" placeholder="Company Name (if applicable)">
+                        <input type="phone" id="phone" name="Phone" placeholder="Phone Number">
+                        <input type="email" id="email" name="Email" placeholder="Email">
+                </fieldset>
+
+<!--ADDRESS------------------------------------------------------------------------------------------->
+
+                <fieldset>
+                    <legend>Address</legend>
+
+                        <input type="street1" id="street1" name="Street" placeholder="Street 1">
+                        <input type="street2" id="street2" name="Street2" placeholder="Street 2">
+                        <input type="city" id="city" name="City" placeholder="City">
+                        <input type="zipcode" id="zipcode" name="Zipcode" placeholder="ZIP code">
+                 </fieldset>
+
+<!--SERVICE DETAILS------------------------------------------------------------------------------------>
+
+                <legend>Service Details</legend>
+                <label for="propertyType">What is the property type?</label>
+
+                    <select id="propertyType" name="PropertyType" onchange="showFields()">
+                        <option value="">Select property type</option>                              <!-- Added blank option -->
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                <div id="residentialFields" style="display:none;">
+                     <label>Check services you're interested in:</label><br>
+
+                        <input type="checkbox" id="DeepCleaning" name="DeepCleaning" value="checked">
+                        <label class="light" for="DeepCleaning">Deep Cleaning</label><br>
+
+                        <input type="checkbox" id="Organization" name="Organization" value="checked">
+                        <label class="light" for="Organization">Organization</label><br>
+
+                        <input type="checkbox" id="NormalCleaning" name="NormalCleaning" value="checked">
+                        <label class="light" for="NormalCleaning">Normal Cleaning</label><br>
+
+                        <input type="checkbox" id="MoveInOut" name="MoveInOut" value="checked">
+                        <label class="light" for="MoveInOut">Move-in/Move-out</label><br>
+
+                        <input type="checkbox" id="NewPostConstructionCleanUp" name="NewPostConstructionCleanUp" value="checked">
+                        <label class="light" for="NewPostConstructionCleanUp">New & Post Construction Clean-Up</label><br>
+
+                        <input type="checkbox" id="RealEstateStaging" name="RealEstateStaging" value="checked">
+                        <label class="light" for="RealEstateStaging">Real Estate Staging</label><br>
+
+                        <input type="checkbox" id="NewBorn" name="NewBorn" value="checked">
+                        <label class="light" for="NewBorn">New Born Arrival Cleaning</label><br>
+     
+                         <label>Other resdiential services needed?</label>
+                         <textarea id="OtherResidential" name="OtherResidential"></textarea>
+                </div>
+
+                <div id="commercialFields" style="display:none;">
+                     <label>Commercial Services:</label><br>
+
+                        <input type="checkbox" id="AirBnb" name="AirBnb" value="checked">
+                        <label class="light" for="AirBnb">AirBnb's & Vacation Rentals</label><br>
+
+                        <input type="checkbox" id="OfficeCleaning" name="OfficeCleaning" value="checked">
+                        <label class="light" for="OfficeCleaning">Office Cleaning</label><br>
+
+                        <label>Other commercial services needed?</label>
+                        <textarea id="OtherCommercial" name="OtherCommercial"></textarea><br>
+                </div>
+
+                <div id="otherFields" style="display:none;">
+                     <label>Other Services:</label><br>
+
+                        <input type="checkbox" id="Gardening" name="Gardening" value="checked">
+                        <label class="light" for="Gardening">Gardening</label><br>
+
+                        <input type="checkbox" id="PetCare" name="PetCare" value="checked">
+                        <label class="light" for="PetCare">Pet Care</label><br>
+
+                        <input type="checkbox" id="GroceryShopping" name="GroceryShopping" value="checked">
+                        <label class="light" for="GroceryShopping">Grocery Shopping</label><br>
+
+                        <input type="checkbox" id="LaundryServices" name="LaundryServices" value="checked">
+                        <label class="light" for="LaundryServices">Laundry Services</label><br>
+
+                        <label>Other services you may need?</label>
+                        <textarea id="OtherServices" name="OtherServices"></textarea><br>
+                     
+                </div>
+
+                    <script>
+                        function showFields() {
+                            var propertyType = document.getElementById("propertyType").value;
+                            var residentialFields = document.getElementById("residentialFields");
+                            var commercialFields = document.getElementById("commercialFields");
+                            var otherFields = document.getElementById("otherFields");
+
+                            residentialFields.style.display = "none";
+                            commercialFields.style.display = "none";
+                            otherFields.style.display = "none";
+
+                            if (propertyType === "Residential") {
+                                residentialFields.style.display = "block";
+                            } else if (propertyType === "Commercial") {
+                                commercialFields.style.display = "block";
+                            } else if (propertyType === "Other") {
+                                otherFields.style.display = "block";
+                            }
+                        }
+                    
+                    function formatDate(date) {                                                 // Function to make the date display day/month/year when form is submitted.
+                    var options = { day: 'numeric', month: 'long',  year: 'numeric' };
+                    return new Date(date).toLocaleDateString('en-US', options);
+                    }
+                    </script>
+
+<!--STORIES TO BE CLEANED------------------------------------------------------------------------------->
+
+                    <label for="Stories">Number of stories to be cleaned (include basement as an additional story):</label>
+                    <select id="Stories" name="Stories" onchange="showFields()">
+                        <option value="">Choose an option</option> <!-- Added blank option -->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                    </select>
+
+<!--REMAINING QUESTIONS------------------------------------------------------------------------------->
+                    <fieldset>
+                        <label>Total Square Footage to be cleaned:</label>
+                        <input type="SquareFootage" id="SquareFootage" name="SquareFootage">
+
+                        <label>What cleaning frequency are you looking for? <br>(One-Time, Weekly, Every Other Week, Every Four Weeks, Occasional, etc):"</label>
+                        <input type="Frequency" id="Frequency" name="Frequency">
+
+                        <label>Is there any additional information we should know?</label>
+                        <textarea id="AddInfo" name="AddInfo"></textarea>
+
+<!--DATE/TIME----------------------------------------------------------------------------------------->
+                        <legend>Date/Time</legend>
+
+                        <label>What time works best for you?</label><br>
+
+                        <input type="checkbox" id="AnyTime" name="AnyTime" value="checked">
+                        <label class="light" for="AnyTime">Any Time</label><br>
+
+                        <input type="checkbox" id="Morning" name="Morning" value="checked">
+                        <label class="light" for="Morning">Morning</label><br>
+
+                        <input type="checkbox" id="Afternoon" name="Afternoon" value="checked">
+                        <label class="light" for="Afternoon">Afternoon</label><br>
+
+                        <input type="checkbox" id="Evening" name="AnyTime" value="checked">
+                        <label class="light" for="Evening">Evening</label>
+
+                        <label>What is your requested appointment day and time?</label>
+                        <label for="datepicker">First Choice:</label>
+                        <input type="date" id="datepicker" name="datepicker">
+
+                        <label for="datepicker2">Second Choice:</label>
+                        <input type="date" id="datepicker2" name="datepicker2"><br>
+
+                    </fieldset>
+
+<!--PETS--------------------------------------------------------------------------------------------->
+
+                    <fieldset>
+                        <legend>Pet Info</legend><br>
+                        <label>If you have pets please fill in the information below:</label><br>
+
+                        <input type="checkbox" id="Dog" name="Dog" value="checked">
+                        <label class="light" for="Dog" >Dog</label><br>
+
+                        <input type="checkbox" id="Cat" name="Cat" value="checked">
+                        <label class="light" for="Cat" >Cat</label><br>
+
+                        <input type="checkbox" id="OtherPet" name="OtherPet" value="checked">
+                        <label class="light" for="OtherPet" >Other</label><br>
+                        <br>
+
+                        <textarea id="OtherPetDescrip" name="OtherPetDescrip" placeholder="If other please explain: "></textarea><br>
+                        <textarea id="SizeBreed" name="SizeBreed" placeholder="Breed(or lbs.): "></textarea><br>
+                        <textarea id="PetName" name="PetName" placeholder="Name(s): "></textarea><br>
+                    </fieldset>
+
+                    <button type="submit" id="submit" class="btn" data-toggle="modal" data-target="#successModal">Submit</button>
+
+                </form>
+
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">
+                                <img src="/images/tick.png" />
+                                </h5>
+                        </div>
+                        <div class="modal-body">
+                            Success!
+                        </div>
+                        
+                        <script>
+                            $(document).ready(function () {
+                                $("#submit").click(function () {
+                                    $("#successModal").modal('show'); // Show the modal
+                                });
+                            });
+                        </script>
+    </div>
+</body>
+</html>
