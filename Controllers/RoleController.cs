@@ -15,13 +15,13 @@ namespace AJsCleaning.Controllers
             this.roleManager = roleManager;
         }
 
-        //[Authorize(Policy ="readpolicy")]
+        [Authorize(Policy ="readpolicy")]
         public IActionResult Index()
         {
             var roles = roleManager.Roles.ToList();
             return View(roles);
         }
-        //[Authorize(Policy = "writepolicy")]
+        [Authorize(Policy = "writepolicy")]
         public IActionResult Create()
         {
             return View(new IdentityRole());

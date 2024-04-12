@@ -14,11 +14,11 @@
  
     }
 </style>
-<div class=" " style="height:90vh;" >
+<div class="pb-4 foot-faq" style="height:90vh;">
     <h1 class=" ">Services</h1>
 
 
-    <table class="table ">
+    <table class="table">
         <tbody>
             @foreach (var typeGroup in Model.GroupBy(item => item.Type))
             {
@@ -61,8 +61,10 @@
     </table>
     @if (User.IsInRole("Administrator"))
     {
+
         <p class="text-end">
             <a asp-action="Create" class="create-btn">Create New</a>
+
         </p>
     }
 </div>
