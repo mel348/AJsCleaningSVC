@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="keywords" content="Home, Commercial, Cleaning, Clean, House, Traverse, 
+    house cleaning traverse, house cleaning, commercial cleaning,">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AJ's Cleaning Services</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -54,11 +56,35 @@
         </nav>
     </header>
 
-    <div class="container ">
+    <div class="container pb-4 foot">
         <main role="main" class=" nanum-myeongjo-regular">
             @RenderBody()
         </main>
     </div>
+    <footer class="mt-5">
+        <div class="footer-details">
+            <div class="row">
+                <div class="col-md-3 text-center my-auto">
+                    <!-- Logo linked to Facebook -->
+                    <a href="https://www.facebook.com/AJsCleanSVC" target="_blank" style="color: #3c5a99">
+                        <i class="fab fa-facebook" style="font-size: 22px;"></i>
+                    </a>
+                </div>
+                <div class="col-md-3 my-auto">
+                    <!-- Phone number -->
+                    <a href="tel:231-714-8786"><i class="fas fa-phone"> </i> 231-714-8786</a>
+                </div>
+                <div class="col-md-3 my-auto">
+                    <!-- Email address -->
+                    <a href="mailto:ajscleaningservices@gmail.com"><i class="fas fa-envelope"> </i> ajscleaningservices@gmail.com</a>
+                </div>
+                <!-- Copyright notice -->
+                <div class="col-md-3 text-center my-auto">
+                    <p class="my-auto">2024 AJ's Cleaning Services</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 @*     <footer class="border-top text-muted">
         <div class="container">
