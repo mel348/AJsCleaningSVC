@@ -45,7 +45,6 @@ html, body {
         min-height: 200px;
         max-height: 400px;
         background-position: unset;
-        position:fixed;
     }
 
     .foot {
