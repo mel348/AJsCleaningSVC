@@ -145,10 +145,51 @@ footer {
             color: white;
         }
 
-    .th-btn-pink {
-        background-color: #c1aaa2;
+/*CRUD BUTTONS*/
+
+.delete-btn {
+    background-color: brown;
+    border: 2px solid #000000;
+    padding: 8px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+    .delete-btn:hover {
+        background-color: #e0d4d0;
         border: 2px solid #000000;
+        font: black;
     }
+
+.create-btn {
+    background-color: lightskyblue;
+    border: 2px solid #000000;
+    padding: 8px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+    .create-btn:hover {
+        background-color: #e0d4d0;
+        border: 2px solid #000000;
+        font: black;
+    }
+
+.backToList{
+    text-decoration: none;
+    color: royalblue;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.th-btn-pink {
+    background-color: #c1aaa2;
+    border: 2px solid #000000;
+    padding: 8px;
+    border-radius: 5px;
+}
 
         .th-btn-pink:hover {
             background-color: #e0d4d0;

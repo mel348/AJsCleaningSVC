@@ -11,7 +11,7 @@
     @if (User.IsInRole("Administrator"))
     {
         <p class="text-end">
-            <a asp-action="Create">Create New</a>
+            <a asp-action="Create" class="create-btn">Create New</a>
         </p>
     }
 <!------------------------------------------------------------------------------------------------------>
@@ -28,8 +28,8 @@
                         @if (User.IsInRole("Administrator"))
                         {
                             <div class="text-center">
-                                <a asp-controller="Teams" asp-action="Edit" asp-route-id="@team.Id">Edit</a> |
-                                <a asp-controller="Teams" asp-action="Delete" asp-route-id="@team.Id">Delete</a>
+                                <a asp-controller="Teams" asp-action="Edit" asp-route-id="@team.Id" class="btn th-btn-pink">Edit</a> |
+                                <a asp-controller="Teams" asp-action="Delete" asp-route-id="@team.Id" class="delete-btn">Delete</a>
                             </div>
                         }
                     </p>
