@@ -31,19 +31,24 @@ html, body {
   }
 }
 @media screen and (max-width: 480px) {
+
     .title-bg {
+        min-height: 150px;
+        max-height: 300px;
         background-position: unset;
     }
-
-
+    .title-bg img{
+        padding-bottom:0px;
+        padding-top:50px;
+    }
     .foot-faq {
         margin-bottom: 250px;
     }
 }
 @media (min-width: 481px ) and (max-width: 2200px) {
     .title-bg {
-        min-height: 200px;
-        max-height: 400px;
+        min-height: 150px;
+        max-height: 300px;
         background-position: unset;
     }
 
