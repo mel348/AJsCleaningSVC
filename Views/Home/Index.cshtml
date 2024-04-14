@@ -14,10 +14,10 @@
 
 <body>
     <div class="col-lg-auto ">
-        <div class="title-bg rounded-3 ">
-            <h1 class="w-100 th-h1-op">AJ's Cleaning Services</h1>
+        <div class="title-bg rounded-3 h-100 " style="max-width:fit-content;">
+            <h1 class="w-100 th-h1-op pt-2">AJ's Cleaning Services</h1>
 
-            <img src="~/images/IndexPhoto.png" class="title-bg " />
+            <img src="~/images/IndexPhoto.png" class="title-bg rounded-3" style="width:100%;" />
         </div>
         <div class="row h-100 mt-2" >
             <div class="testimonials-container col-6 mx-auto">
@@ -61,7 +61,7 @@
                 <div id="map-container " class="mx-auto map-container">
                     <div id="search-container " class="col-12">
                         <input type="text" id="zipcodeInput" class=" ms-1" placeholder="Enter Zipcode" onkeydown="if (event.key === 'Enter') searchByZipcode()">
-                        <button id="searchButton" class="th-btn-pink m-1" style="border-radius:5px;" onclick="searchByZipcode()">Search</button>
+                        <button id="searchButton" class="th-btn-pink m-1 p-1" style="border-radius:5px; " onclick="searchByZipcode()">Search</button>
                         <p id="responseMessage" class="th-msg pt-1"  ></p>
                         <p id="errorMessage" class="th-msg pt-1 "></p>
                     </div>

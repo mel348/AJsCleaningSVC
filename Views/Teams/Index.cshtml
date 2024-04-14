@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="~/css/team.css" type="text/css" />
 
 <h1>@ViewData["Title"]</h1>
-<div class="row">
+<div class="row foot-faq">
 
 <!---CREATE NEW LINK------------------------------------------------------------------------------------------->
     @if (User.IsInRole("Administrator"))
@@ -23,7 +23,7 @@
                 <div class="container">
                     <h2>@team.Name</h2>
                     <p class="title">@team.Title</p>
-                    <p class="bio">@team.Description</p>
+                    <p class="bio team-txt-sm">@team.Description</p>
                     <p>
                         @if (User.IsInRole("Administrator"))
                         {

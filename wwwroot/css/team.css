@@ -16,7 +16,7 @@
 
 /* Some left and right padding inside the container */
 .container {
-    padding: 0 20px;
+    padding: 0 0px;
 }
 
     /* Clear floats */
@@ -32,12 +32,17 @@
 
 .bio {
     font: nanum-myeongjo-regular;
-    font-size: 14px;
+    font-size: .92em;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 767px) {
     .column {
         width: 100%;
         display: block;
+        padding:0 0 0 20px;
     }
+    .row{
+        width:100%;
+    }
+
 }
