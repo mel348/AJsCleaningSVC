@@ -119,7 +119,7 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-            var roleName = "Administrator"; // Default role name
+            var roleName = "User"; // Default role name
             var role = _roleManager.Roles.FirstOrDefault(r => r.Name == roleName); // added for roles preset to user
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)

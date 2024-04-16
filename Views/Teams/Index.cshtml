@@ -6,12 +6,15 @@
 
 <h1>@ViewData["Title"]</h1>
 <div class="row">
+
+<!---CREATE NEW LINK------------------------------------------------------------------------------------------->
     @if (User.IsInRole("Administrator"))
     {
         <p class="text-end">
             <a asp-action="Create" class="create-btn">Create New</a>
         </p>
     }
+<!------------------------------------------------------------------------------------------------------>
     @foreach (var team in Model)
     {
         <div class="column">
