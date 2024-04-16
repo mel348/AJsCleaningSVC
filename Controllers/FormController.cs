@@ -140,13 +140,15 @@ namespace YourNamespace.Controllers {
         }
 
         private void SendEmail(string body) {
-            string fromMail = "ajscleaning231@gmail.com";
-            string fromPassword = "fknxxzzotqywqbru"; // 2-Step verification app password
+            //string fromMail = "ajscleaning231@gmail.com";
+            //string fromPassword = "fknxxzzotqywqbru"; // 2-Step verification app password
+            string fromMail = "ajscleaningsvc@gmail.com";
+            string fromPassword = "bxjwgpeuwzawqvbz"; // 2-Step verification app password
 
             MailMessage message = new MailMessage();
             message.From = new MailAddress(fromMail);
             message.Subject = "New Contact Form Submission";
-            message.To.Add(new MailAddress("ajscleaning231@gmail.com")); 
+            message.To.Add(new MailAddress("ajscleaningsvc@gmail.com")); 
             message.Body = body;
 
             using (var smtpClient = new SmtpClient("smtp.gmail.com")) {
