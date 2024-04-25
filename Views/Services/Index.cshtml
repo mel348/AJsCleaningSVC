@@ -48,8 +48,8 @@
                             @if (User.IsInRole("Administrator"))
                             {
                                 <div class="text-center">
-                                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" class="btn th-btn-pink">Edit</a>|
-                                    <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id" class="delete-btn">Delete</a>
+                                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" class="btn btn-secondary">Edit</a>
+                                    <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id" class="btn btn-danger">Delete</a>
                                 </div>
                             }
                         </td>
@@ -63,7 +63,7 @@
     {
 
         <p class="text-end">
-            <a asp-action="Create" class="create-btn">Create New</a>
+            <a asp-action="Create" class="btn btn-secondary">Create New</a>
 
         </p>
     }

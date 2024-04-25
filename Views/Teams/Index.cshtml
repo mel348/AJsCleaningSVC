@@ -11,7 +11,7 @@
     @if (User.IsInRole("Administrator"))
     {
         <p class="text-end">
-            <a asp-action="Create" class="create-btn">Create New</a>
+            <a asp-action="Create" class="btn btn-secondary">Create New</a>
         </p>
     }
 <!------------------------------------------------------------------------------------------------------>
@@ -21,15 +21,15 @@
             <div class="card">
                 <img src="@team.PhotoPath" alt="@team.Name" style="width:100%">
                 <div class="container">
-                    <h2>@team.Name</h2>
-                    <p class="title">@team.Title</p>
-                    <p class="bio team-txt-sm">@team.Description</p>
+                    <h2 class="ps-2">@team.Name</h2>
+                    <p class="title p-1">@team.Title</p>
+                    <p class="bio team-txt-sm p-1">@team.Description</p>
                     <p>
                         @if (User.IsInRole("Administrator"))
                         {
                             <div class="text-center">
-                                <a asp-controller="Teams" asp-action="Edit" asp-route-id="@team.Id" class="btn th-btn-pink">Edit</a> |
-                                <a asp-controller="Teams" asp-action="Delete" asp-route-id="@team.Id" class="delete-btn">Delete</a>
+                                <a asp-controller="Teams" asp-action="Edit" asp-route-id="@team.Id" class="btn btn-secondary" >Edit</a> |
+                                <a asp-controller="Teams" asp-action="Delete" asp-route-id="@team.Id" class="btn btn-danger">Delete</a>
                             </div>
                         }
                     </p>
