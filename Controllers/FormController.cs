@@ -148,7 +148,7 @@ namespace YourNamespace.Controllers {
             MailMessage message = new MailMessage();
             message.From = new MailAddress(fromMail);
             message.Subject = "New Contact Form Submission";
-            message.To.Add(new MailAddress("ajscleaningsvc@gmail.com")); 
+            message.To.Add(new MailAddress("ajscleaning231@gmail.com")); 
             message.Body = body;
 
             using (var smtpClient = new SmtpClient("smtp.gmail.com")) {
