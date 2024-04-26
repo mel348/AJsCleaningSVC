@@ -86,8 +86,8 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
         {
             try
             {
-                string fromMail = "ajscleaning231@gmail.com";
-                string fromPassword = "fknxxzzotqywqbru";
+                string fromMail = "ajscleaningsvc@gmail.com";
+                string fromPassword = "bxjwgpeuwzawqvbz";
                 MailMessage message = new MailMessage();
                 SmtpClient smtpClient = new SmtpClient();
                 message.From = new MailAddress(fromMail); 
