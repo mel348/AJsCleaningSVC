@@ -31,7 +31,10 @@ form {
     background: #c1cdb7; 
     padding: 20px; 
 }
-
+.form-inline{
+    background: none;
+    padding: 0;
+}
 
 h1 {
     text-align: center;
@@ -90,7 +93,7 @@ select {
     font-size: 13px;
 }
 
-button.btn {
+button.butt {
     padding: 10px 10px 10px 10px;
     color: dimgray;
     background-color: #c1aaa2;

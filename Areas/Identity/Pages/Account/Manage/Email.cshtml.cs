@@ -4,6 +4,8 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -123,7 +125,7 @@ namespace AJsCleaning.Areas.Identity.Pages.Account.Manage
                     pageHandler: null,
                     values: new { area = "Identity", userId = userId, email = Input.NewEmail, code = code },
                     protocol: Request.Scheme);
-                await _emailSender.SendEmailAsync(
+                await SendEmailAsync(
                     Input.NewEmail,
                     "Confirm your email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
@@ -135,7 +137,36 @@ namespace AJsCleaning.Areas.Identity.Pages.Account.Manage
             StatusMessage = "Your email is unchanged.";
             return RedirectToPage();
         }
+        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        {
+            try
+            {
+                string fromMail = "ajscleaningsvc@gmail.com";
+                string fromPassword = "bxjwgpeuwzawqvbz";
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                message.From = new MailAddress(fromMail); //Network email @AJsCleaning.com
+                message.To.Add(email);
+                message.Subject = subject;
+                message.IsBodyHtml = true;
+                message.Body = confirmLink;
 
+                smtpClient.Port = 587;           // THIS MUST BE CHANGED FOR HOST
+                smtpClient.Host = "smtp.gmail.com"; // THIS MUST BE CHANGED FOR HOST
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(fromMail, fromPassword); //Same email as above with the password for smtp server on host
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Send(message);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public async Task<IActionResult> OnPostSendVerificationEmailAsync()
         {
             var user = await _userManager.GetUserAsync(User);

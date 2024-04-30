@@ -145,9 +145,9 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     // REMOVE _emailSender. FOR HOST *************
-                    await SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-                    //ViewData["message"] = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
+                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    ViewData["message"] = $"No new accounts.";
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
@@ -168,36 +168,36 @@ namespace AJsCleaning.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
-        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
-        {
-            try
-            {
-                string fromMail = "ajscleaning231@gmail.com";
-                string fromPassword = "fknxxzzotqywqbru";
-                MailMessage message = new MailMessage();
-                SmtpClient smtpClient = new SmtpClient();
-                message.From = new MailAddress(fromMail); //Network email @AJsCleaning.com
-                message.To.Add(email);
-                message.Subject = subject;
-                message.IsBodyHtml = true;
-                message.Body = confirmLink;
+        //private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        //{
+        //    try
+        //    {
+        //        string fromMail = "ajscleaning231@gmail.com";
+        //        string fromPassword = "fknxxzzotqywqbru";
+        //        MailMessage message = new MailMessage();
+        //        SmtpClient smtpClient = new SmtpClient();
+        //        message.From = new MailAddress(fromMail); //Network email @AJsCleaning.com
+        //        message.To.Add(email);
+        //        message.Subject = subject;
+        //        message.IsBodyHtml = true;
+        //        message.Body = confirmLink;
 
-                smtpClient.Port = 587;           // THIS MUST BE CHANGED FOR HOST
-                smtpClient.Host = "smtp.gmail.com"; // THIS MUST BE CHANGED FOR HOST
+        //        smtpClient.Port = 587;           // THIS MUST BE CHANGED FOR HOST
+        //        smtpClient.Host = "smtp.gmail.com"; // THIS MUST BE CHANGED FOR HOST
 
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential(fromMail, fromPassword); //Same email as above with the password for smtp server on host
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.Send(message);
+        //        smtpClient.EnableSsl = true;
+        //        smtpClient.UseDefaultCredentials = false;
+        //        smtpClient.Credentials = new NetworkCredential(fromMail, fromPassword); //Same email as above with the password for smtp server on host
+        //        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //        smtpClient.Send(message);
 
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
 
         private IdentityUser CreateUser()
         {

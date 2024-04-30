@@ -14,11 +14,11 @@
  
     }
 </style>
-<div class=" " style="height:90vh;" >
+<div class="pb-4 foot-faq" style="height:90vh;">
     <h1 class=" ">Services</h1>
 
 
-    <table class="table ">
+    <table class="table">
         <tbody>
             @foreach (var typeGroup in Model.GroupBy(item => item.Type))
             {
@@ -48,8 +48,8 @@
                             @if (User.IsInRole("Administrator"))
                             {
                                 <div class="text-center">
-                                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" >Edit</a> |
-                                    <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id">Delete</a>
+                                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@serviceGroup.First().Id" class="btn btn-secondary">Edit</a>
+                                    <a asp-controller="Services" asp-action="Delete" asp-route-id="@serviceGroup.First().Id" class="btn btn-danger">Delete</a>
                                 </div>
                             }
                         </td>
@@ -61,8 +61,10 @@
     </table>
     @if (User.IsInRole("Administrator"))
     {
+
         <p class="text-end">
-            <a asp-action="Create">Create New</a>
+            <a asp-action="Create" class="btn btn-secondary">Create New</a>
+
         </p>
     }
 </div>

@@ -31,18 +31,34 @@ html, body {
   }
 }
 @media screen and (max-width: 480px) {
+
     .title-bg {
+        min-height: 150px;
+        max-height: 300px;
         background-position: unset;
+    }
+    .title-bg img{
+        padding-bottom:0px;
+        padding-top:50px;
+    }
+    .foot-faq {
+        margin-bottom: 250px;
     }
 }
-@media (max-width: 767px) {
+@media (min-width: 481px ) and (max-width: 2200px) {
     .title-bg {
-        min-height: 200px; 
-        max-height: 400px;
+        min-height: 150px;
+        max-height: 300px;
         background-position: unset;
     }
-    .title-bg{
-        max-height:150px;
+
+    .foot {
+        margin-bottom: 20%;
+        height: auto;
+    }
+
+    .foot-faq {
+        margin-bottom: 20%;
     }
 }
 
@@ -63,6 +79,7 @@ html, body {
 
     h1 {
         text-align: center;
+        font-size:2.5em;
     }
 
     h2 {
@@ -90,7 +107,7 @@ footer {
     background-color: #c1aaa2;
     opacity: 0.8;
     margin-top: 2px;
-    height: 25px;
+    height: auto;
     font-family: "Nanum Myeongjo", serif;
     font-weight: 800;
     font-style: normal;
@@ -105,6 +122,9 @@ footer {
         height: auto; 
         padding: 12px; 
         font-size: 13px; 
+    }
+    .team-txt-sm{
+        font-size:1.2em;
     }
 }
 
@@ -129,10 +149,51 @@ footer {
             color: white;
         }
 
-    .th-btn-pink {
-        background-color: #c1aaa2;
+/*CRUD BUTTONS*/
+
+.delete-btn {
+    background-color: brown;
+    border: 2px solid #000000;
+    padding: 8px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+    .delete-btn:hover {
+        background-color: #e0d4d0;
         border: 2px solid #000000;
+        font: black;
     }
+
+.create-btn {
+    background-color: lightskyblue;
+    border: 2px solid #000000;
+    padding: 8px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+    .create-btn:hover {
+        background-color: #e0d4d0;
+        border: 2px solid #000000;
+        font: black;
+    }
+
+.backToList{
+    text-decoration: none;
+    color: royalblue;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.th-btn-pink {
+    background-color: #c1aaa2;
+    border: 2px solid #000000;
+    padding: 8px;
+    border-radius: 5px;
+}
 
         .th-btn-pink:hover {
             background-color: #e0d4d0;
@@ -185,7 +246,7 @@ footer {
     }
 
     .th-h1-op {
-        font-size: 2.6em;
+        font-size: 3.5em;
         color: white;
         text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
     }
@@ -194,18 +255,18 @@ footer {
         font-size: 12px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-.title-bg {
-    position: relative; 
-    margin: 0;
-    width: 100%;
-    height: auto;
-    color: white;
-    text-align: center;
-    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
-    box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
-    -webkit-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
-    -moz-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
-}
+    .title-bg {
+        position: relative; 
+        margin: 0;
+        width: 100%;
+        height: auto;
+        color: white;
+        text-align: center;
+        text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+        box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
+        -webkit-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
+        -moz-box-shadow: 9px 10px 22px 0px rgba(140,154,141,1);
+    }
 
     .title-bg img {
         display: block; 
@@ -225,10 +286,6 @@ footer {
         z-index: 1;
         font-size: 40px;
 }
-@media screen and (max-width: 767px) {
-    .title-bg img {
-        display: unset; 
-    }
 }
 .footer-details a {
     color: black; 

@@ -13,11 +13,11 @@
 </head>
 
 <body>
-    <div class="col-lg-auto">
-        <div class="title-bg rounded-3 ">
-           <h1>AJ's Cleaning Services</h1>
+    <div class="col-lg-auto ">
+        <div class="title-bg rounded-3 h-100 " style="max-width:fit-content;">
+            <h1 class="w-100 th-h1-op pt-2">AJ's Cleaning Services</h1>
 
-            <img src="~/images/IndexPhoto.png" class="title-bg" />
+            <img src="~/images/IndexPhoto.png" class="title-bg rounded-3" style="width:100%;" />
         </div>
         <div class="row h-100 mt-2" >
             <div class="testimonials-container col-6 mx-auto">
@@ -56,12 +56,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mx-auto " style="border-radius: 5px;">
+            <div class="col-lg-6 mx-auto " style="border-radius: 5px; padding-bottom:100px">
                 <h2 class="text-center mt-1 map-title" >Service Area</h2>
                 <div id="map-container " class="mx-auto map-container">
                     <div id="search-container " class="col-12">
                         <input type="text" id="zipcodeInput" class=" ms-1" placeholder="Enter Zipcode" onkeydown="if (event.key === 'Enter') searchByZipcode()">
-                        <button id="searchButton" class="th-btn-pink m-1" style="border-radius:5px;" onclick="searchByZipcode()">Search</button>
+                        <button id="searchButton" class="th-btn-pink m-1 p-1" style="border-radius:5px; " onclick="searchByZipcode()">Search</button>
                         <p id="responseMessage" class="th-msg pt-1"  ></p>
                         <p id="errorMessage" class="th-msg pt-1 "></p>
                     </div>
@@ -167,28 +167,5 @@
             }
         });
     </script>
-    <footer>
-        <div class="footer-details">
-            <div class="row">
-                <div class="col-md-3 text-center">
-                    <!-- Logo linked to Facebook -->
-                    <a href="https://www.facebook.com/AJsCleanSVC" target="_blank" style="color: #3c5a99">
-                        <i class="fab fa-facebook" style="font-size: 22px;"></i>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <!-- Phone number -->
-                    <a href="tel:231-714-8786"><i class="fas fa-phone"> </i> 231-714-8786</a>
-                </div>
-                <div class="col-md-3">
-                    <!-- Email address -->
-                    <a href="mailto:ajscleaningservices@gmail.com"><i class="fas fa-envelope"> </i> ajscleaningservices@gmail.com</a>
-                </div>
-                 <!-- Copyright notice -->
-            <div class="col-md-3 text-center">
-                <p>&copy; 2024 AJ's Cleaning Services</p>
-            </div>
-            </div>
-        </div>
-    </footer>
+
 </body>
