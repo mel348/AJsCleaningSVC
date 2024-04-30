@@ -33,6 +33,8 @@
 .bio {
     font: nanum-myeongjo-regular;
     font-size: .92em;
+    height: 200px;
+    overflow: scroll;
 }
 
 @media screen and (max-width: 767px) {
