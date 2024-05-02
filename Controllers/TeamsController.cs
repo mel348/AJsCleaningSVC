@@ -71,7 +71,7 @@ namespace AJsCleaning.Controllers
                     {
                         await photo.CopyToAsync(stream);
                     }
-                    team.PhotoPath = $"/images/teams/{fileName}"; // Adjust the property name if different
+                    team.PhotoPath = $"/images/teams/{fileName}"; 
                 }
                 _context.Add(team);
                 await _context.SaveChangesAsync();
@@ -103,30 +103,37 @@ namespace AJsCleaning.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Policy = "writepolicy")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Title,Description,Photo")] Team team, IFormFile photo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Title,Description,PhotoPath")] Team team, IFormFile photo)
         {
             if (id != team.Id)
             {
                 return NotFound();
             }
+            var existingTeam = await _context.Teams.FirstOrDefaultAsync(t => t.Id == team.Id);
+            if (existingTeam == null)
+            {
+                return NotFound(); // Handle the case where the team does not exist.
+            }
             if (ModelState.IsValid)
             {
+                // Handle file upload
                 if (photo != null && photo.Length > 0)
                 {
                     var fileName = Path.GetFileName(photo.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\teams", fileName);
-
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/teams", fileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await photo.CopyToAsync(stream);
                     }
-
-                    team.PhotoPath = $"/images/teams/{fileName}";
+                    existingTeam.PhotoPath = $"/images/teams/{fileName}";
                 }
-
+                existingTeam.Name = team.Name;
+                existingTeam.Title = team.Title;
+                existingTeam.Description = team.Description;
+                // Don't update PhotoPath if no new photo was provided.
                 try
                 {
-                    _context.Update(team);
+                    _context.Update(existingTeam);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -142,8 +149,9 @@ namespace AJsCleaning.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(team);
+            return View(team); // This ensures a return path for invalid model state.
         }
+
 
         // GET: Teams/Delete/5
         [Authorize(Policy = "writepolicy")]
