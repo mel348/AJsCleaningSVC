@@ -1,0 +1,5 @@
+AJs Cleaning Services is a local cleaning business that we developed a full-stack web application for to boost business and profits through an enhanced online presence. The website features an inquiry form to increase customer inquiries and facilitates frequent customer engagement. In addition, we ensured a seamless UX across all devices.
+Technologies Used: C#, HTML, CSS, JavaScript, and ASP.Net framework with MVC architecture.
+Achievements: Designed a clean, responsive UI with a homepage carousel, testimonials, and top navigation bar. Implemented CRUD functionality, a streamlined customer inquiry form, an interactive service area map, and Facebook reviews.
+Challenges: Overcame issues with seeding data due to a Visual Studio update requiring ‘String.Empty’ for variable initialization. This was resolved by updating the code and successfully migrating the data. 
+Results: We received positive feedback from both the advisory board and the client.  Both parties were elated by the overall design and functionality of the application.
